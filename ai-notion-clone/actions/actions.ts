@@ -6,7 +6,6 @@ import { auth } from "@clerk/nextjs/server";
 export async function createNewDocument(){
     // The auth() function will automatically throw an error if the user is not authenticated
     const {sessionClaims} = await auth();
-    
     const docCollectionRef = adminDb.collection("documents")
     const docRef = await docCollectionRef.add({
         title:"New Doc"

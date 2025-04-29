@@ -1,21 +1,47 @@
+"use client";
 import {
     Sheet,
     SheetContent,
     SheetHeader,
     SheetTitle,
     SheetTrigger
-} from "@/components/ui/sheet"
-import { MenuIcon } from "lucide-react"
-import NewDocumentButton from "./NewDocumentButton"
+} from "@/components/ui/sheet";
+import { db } from "@/firebase";
+import { useUser } from "@clerk/nextjs";
+import { collectionGroup, DocumentData, query, where } from "firebase/firestore";
+import { MenuIcon } from "lucide-react";
+import { useEffect } from "react";
+import { useCollection } from "react-firebase-hooks/firestore";
+import NewDocumentButton from "./NewDocumentButton";
 
+interface RoomDocument extends DocumentData {
+    createdAt: string;
+    role: "owner" | "editor";
+    roomId: string;
+    userId: string;
+}
 
 function Sidebar() {
+    const { user } = useUser();
+    const [data, loading, error] = useCollection(
+        user &&
+        query(collectionGroup(db, 'rooms'), where("userId", "==", user.emailAddresses[0].toString()))
+    );
 
- const menuOption = (
-    <>
-    <NewDocumentButton/>
-    </>
- )
+    useEffect(() => {
+        if (!data) return;
+
+        const grouped = data.docs.reduce<(
+            owner: RoomDocument;
+            editor: RoomDocument[]; 
+        )>
+    }, [data])
+
+    const menuOption = (
+        <>
+            <NewDocumentButton />
+        </>
+    )
 
     return (
         <div className="p-2 md:p-5 bg-gray-200 relative">
@@ -28,17 +54,16 @@ function Sidebar() {
                         <SheetHeader>
                             <SheetTitle>Menu</SheetTitle>
                             <div>
-                            {menuOption}
+                                {menuOption}
                             </div>
                         </SheetHeader>
                     </SheetContent>
                 </Sheet>
             </div>
             <div className="hidden md:inline">
-            {menuOption}
+                {menuOption}
             </div>
         </div>
-
     )
 }
 
