@@ -1,10 +1,11 @@
 'use client'
 import { SignedIn, SignedOut, SignInButton, UserButton, useUser } from "@clerk/nextjs";
+import Breadcrumbs from "./Breadcrumbs";
 function Header() {
     const { user } = useUser();
 
     return (
-    <div className="flex items-center justify-between p-5">
+    <div className="flex items-center justify-between p-5">1
         { user && (
                 <h1 className="text-2xl">
                     {user?.firstName}
@@ -12,6 +13,7 @@ function Header() {
                 </h1>
             )}
         {/* Breadcrumbs */}
+        <Breadcrumbs/>
 
         <div>
             <SignedOut>
