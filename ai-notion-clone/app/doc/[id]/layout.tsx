@@ -1,5 +1,5 @@
+import RoomsProvider from "@/components/RoomProvider";
 import { auth } from "@clerk/nextjs/server";
-
 async function DocLayout({children , params : {id}} : {
     children : React.ReactNode;
     params : {id:string};
@@ -8,7 +8,7 @@ async function DocLayout({children , params : {id}} : {
     if (!userId) throw new Error("Unauthorized");
 
     return (
-        <div> DocLayout</div>
+        <RoomsProvider roomId = {id}> {children}</RoomsProvider>
     )
 }
 
