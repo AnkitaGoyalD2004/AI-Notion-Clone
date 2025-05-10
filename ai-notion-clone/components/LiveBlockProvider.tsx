@@ -13,4 +13,4 @@ function LiveBlocksProvider({children} : {
   )
 }
 
-export default LiveBlocksProvider
+export default LiveBlocksProvider;
