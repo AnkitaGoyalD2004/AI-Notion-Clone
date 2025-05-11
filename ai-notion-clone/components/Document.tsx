@@ -55,9 +55,13 @@ function Document({ id }: { id: string }) {
             {/* Avatars */}
             </div>
 
+            
+
             {/* Collaborative Editor */}
         </div>
     )
 }
 
 export default Document
+
+
