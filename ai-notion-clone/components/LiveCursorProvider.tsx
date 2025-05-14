@@ -22,6 +22,9 @@ function handlePointerLeave(){
     <div 
     onPointerMove={handlePointerMove} 
     onPointerLeave={handlePointerLeave}>
+
+{children}
+
       {other.filter((other) => other.presence.cursor !== null).map(({connectionId , presence , info}) => (
      <FollowPointer 
        key={connectionId}
