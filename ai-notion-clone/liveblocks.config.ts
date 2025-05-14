@@ -1,3 +1,19 @@
+import { createClient } from "@liveblocks/client";
+import { createRoomContext } from "@liveblocks/react";
+
+const client = createClient({
+  authEndpoint: "/auth-endpoint",
+});
+
+export const {
+  RoomProvider,
+  useMyPresence,
+  useUpdateMyPresence,
+  useSelf,
+  useOthers,
+  useRoom,
+} = createRoomContext(client);
+
 // Define Liveblocks types for your application
 // https://liveblocks.io/docs/api-reference/liveblocks-react#Typing-your-data
 declare global {
@@ -19,7 +35,7 @@ declare global {
       id: string;
       info: {
         name: string;
-        email:string,
+        email: string;
         avatar: string;
       };
     };
