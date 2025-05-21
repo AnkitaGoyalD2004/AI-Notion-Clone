@@ -5,6 +5,7 @@ import useOwner from "@/lib/useOwner";
 import { doc, updateDoc } from "firebase/firestore";
 import { FormEvent, useEffect, useState, useTransition } from "react";
 import { useDocumentData } from "react-firebase-hooks/firestore";
+import DeleteDocument from "./DeleteDocument";
 import Editor from "./Editor";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
@@ -46,11 +47,12 @@ function Document({ id }: { id: string }) {
                      <Button disabled={isUpdating} type="submit">
                      {isUpdating ? "Updating..." : "Update"}
                      </Button>
-                        
                     {/* IF */}
                     {isOwner && (
                         <>
-                         <p> I own this </p>
+                        {/* Invite User */}
+                        {/* Delete Document */}
+                        <DeleteDocument/>
                         </>
                     )}
                 </form>
