@@ -45,7 +45,7 @@ function Document({ id }: { id: string }) {
                      onChange={(e) => setInput(e.target.value)}/>
 
                      <Button disabled={isUpdating} type="submit">
-                     {isUpdating ? "Updating..." : "Update"}̦
+                     {isUpdating ? "Updating..." : "Update"}
                      </Button>
                     {/* IF */}
                     {isOwner && (
@@ -72,4 +72,4 @@ function Document({ id }: { id: string }) {
     )
 }
 
- export default Document
+ export default Document;
