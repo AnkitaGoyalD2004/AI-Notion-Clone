@@ -7,6 +7,7 @@ import { FormEvent, useEffect, useState, useTransition } from "react";
 import { useDocumentData } from "react-firebase-hooks/firestore";
 import DeleteDocument from "./DeleteDocument";
 import Editor from "./Editor";
+import InviteUser from "./InviteUser";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
@@ -51,6 +52,7 @@ function Document({ id }: { id: string }) {
                     {isOwner && (
                         <>
                         {/* Invite User */}
+                        <InviteUser/>
                         {/* Delete Document */}
                         <DeleteDocument/>
                         </>
