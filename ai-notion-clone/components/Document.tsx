@@ -8,6 +8,7 @@ import { useDocumentData } from "react-firebase-hooks/firestore";
 import DeleteDocument from "./DeleteDocument";
 import Editor from "./Editor";
 import InviteUser from "./InviteUser";
+import ManageUsers from "./ManageUsers";
 import { Button } from "./ui/button";
 import { Input } from "./ui/input";
 
@@ -60,8 +61,10 @@ function Document({ id }: { id: string }) {
                 </form>
             </div>
 
-            <div>
+            <div className="flex max-w-6xl mx-auto justify-between items-center mb-5">
+                <ManageUsers/>
             {/* Manage Users */}
+
 
             {/* Avatars */}
             </div>

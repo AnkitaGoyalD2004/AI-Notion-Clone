@@ -32,10 +32,10 @@ function InviteUser() {
 
          startTransition(async () => {
             const {success} = await inviteUserToDocument(roomId , email);
-            
+           
             if(success){
                 setIsOpen(false);
-                setEmail('')
+                 setEmail('')
                 toast.success("User Added to Room successfully!");
             }else{
                 toast.error("Failed to add user to room!");
@@ -70,6 +70,7 @@ function InviteUser() {
                     {isPending ? "Inviting..." : "Invite"}
                  </Button>
                </form>
+ 
  
             </DialogContent>
         </Dialog>

@@ -65,7 +65,7 @@ export async function inviteUserToDocument(roomId: string, email: string) {
             .doc(roomId)
             .set({
                 userId: email,
-                role: "editor",
+                role: "editexport async functionor",
                 createdAt: new Date(),
                 roomId,
             })
@@ -75,4 +75,24 @@ export async function inviteUserToDocument(roomId: string, email: string) {
         return { success: false };
     }
 
+}
+
+export async function removeUserFromDocument(roomId: string, email: string) {
+    const { sessionClaims } = await auth(); // Properly await the auth() call
+    console.log("removeUserFromDocument", roomId, email);
+
+    try {
+
+        await adminDb
+            .collection("users")
+            .doc(email)
+            .collection("rooms")
+            .doc(roomId)
+            .delete();
+
+        return { success: true };
+    } catch (error) {
+        console.error(error);
+        return { success: false };
+    }
 }
