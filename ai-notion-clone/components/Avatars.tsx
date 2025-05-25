@@ -7,6 +7,7 @@ import {
     TooltipTrigger,
 } from "@/components/ui/tooltip";
 import { useOthers, useSelf } from "@liveblocks/react/suspense";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 
 
 function Avatars() {
@@ -20,11 +21,14 @@ function Avatars() {
 
             <div className="flex -space-x-5">
                 {all.map((other, i) => (
-                    <TooltipProvider>
+                    <TooltipProvider key={other.id + 1}>
                         <Tooltip>
                             <TooltipTrigger>Hover</TooltipTrigger>
                             <TooltipContent>
-                                <p>Add to library</p>
+                              <Avatar className="border-2 hover:z-50">
+                                 <AvatarImage src={other?.info.avatar} />
+                                 <AvatarFallback>{other?.info.name}</AvatarFallback>
+                              </Avatar>
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>

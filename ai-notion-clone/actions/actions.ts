@@ -43,7 +43,7 @@ export async function deleteDocument(roomId: string) {
         })
 
         await batch.commit();
-
+ 
         //delete the room in liveblocks
         await liveblocks.deleteRoom(roomId);
         return { success: true };
