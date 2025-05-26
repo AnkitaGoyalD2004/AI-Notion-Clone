@@ -25,5 +25,4 @@ function RoomsProvider({ roomId, children }: {
         // <div >{children}</div>
     )
 }
-
 export default RoomsProvider;

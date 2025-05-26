@@ -23,12 +23,14 @@ function Avatars() {
                 {all.map((other, i) => (
                     <TooltipProvider key={other.id + 1}>
                         <Tooltip>
-                            <TooltipTrigger>Hover</TooltipTrigger>
-                            <TooltipContent>
-                              <Avatar className="border-2 hover:z-50">
+                            <TooltipTrigger>
+                            <Avatar className="border-2 hover:z-50">
                                  <AvatarImage src={other?.info.avatar} />
                                  <AvatarFallback>{other?.info.name}</AvatarFallback>
-                              </Avatar>
+                              </Avatar> 
+                            </TooltipTrigger>
+                            <TooltipContent>
+                             <p>{self?.id === other?.id ? "You" : other?.info.name}</p>
                             </TooltipContent>
                         </Tooltip>
                     </TooltipProvider>
@@ -38,4 +40,4 @@ function Avatars() {
         </div>
     )
 }
-export default Avatars
+export default Avatars;
