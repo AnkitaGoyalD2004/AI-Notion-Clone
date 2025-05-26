@@ -11,7 +11,7 @@ async function DocLayout({children , params : {id}}: {children : React.ReactNode
 
   return (
      <RoomsProvider roomId = {id} >{children}</RoomsProvider>
-    // <div>{children}</div>
+    //  <div>{children}</div>
   )
 }
 
