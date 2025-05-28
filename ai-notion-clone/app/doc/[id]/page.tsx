@@ -10,4 +10,3 @@ function DocumentPage({ params }: { params: { id: string } }) {
 }
 
 export default DocumentPage
-
